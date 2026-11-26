@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayaz & Aylin — Toy Dəvətnaməsi</title>
+<meta name="description" content="Ayaz & Aylin sizi toy məclisimizə dəvət edirik — 12.12.2026, Movida Plaza">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ayaz & Aylin — Toy Dəvətnaməsi">
+<meta property="og:description" content="12 Dekabr 2026 · Movida Plaza. Zərfi açın 💌">
+<meta property="og:image" content="https://devetiyfcom.github.io/Ayaz-Aylin/preview.jpg">
+<meta property="og:url" content="https://devetiyfcom.github.io/Ayaz-Aylin/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://devetiyfcom.github.io/Ayaz-Aylin/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ballet&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#3a0b33; --plum-d:#22061f; --wine:#5c1650;
+    --gold:#d8b46a; --gold-d:#a8833a; --cream:#fdf8f4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:var(--plum-d)}
+  body{font-family:'Cormorant Garamond',serif;color:var(--cream);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+  body.locked{overflow:hidden;height:100vh}
+
+  /* ============ INTRO / ZƏRF ============ */
+  #intro{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:radial-gradient(ellipse at center,rgba(60,10,55,.55),rgba(15,2,14,.95)),url(img/genis.jpg) center/cover;
+    transition:opacity 1s ease 3.6s, visibility 0s 4.6s}
+  #intro.open{opacity:0;visibility:hidden}
+  .env-wrap{position:relative;width:min(92vw,520px);aspect-ratio:1194/696;cursor:pointer;
+    filter:drop-shadow(0 25px 45px rgba(0,0,0,.6));animation:float 4s ease-in-out infinite}
+  .env-wrap{perspective:1400px}
+  .pocket{position:absolute;z-index:1;inset:0;border-radius:6px;background:linear-gradient(180deg,#1a0418,#3d0c37 60%,#2a0726);box-shadow:inset 0 10px 30px rgba(0,0,0,.7)}
+  .env-card{position:absolute;z-index:2;left:29%;width:42%;top:8%;aspect-ratio:802/1032;background:url(img/p1.jpg) center/cover;border-radius:3px;
+    box-shadow:0 6px 20px rgba(0,0,0,.5);transition:transform 1.3s cubic-bezier(.3,.1,.2,1) 1s}
+  .front{position:absolute;z-index:3;inset:0;background:url(img/zerf.jpg) center/100% 100%;border-radius:6px;
+    clip-path:polygon(0% 17%,5% 26%,10% 31%,15% 39%,20% 43%,25% 46%,32% 46%,38% 47%,42% 52%,46% 56%,54% 56%,58% 52%,62% 47%,68% 46%,75% 46%,80% 43%,85% 39%,90% 31%,95% 26%,100% 17%,100% 100%,0% 100%)}
+  .flap{position:absolute;inset:0;transform-origin:50% 0;transform-style:preserve-3d;z-index:4;
+    transition:transform 1.1s cubic-bezier(.5,0,.3,1), z-index 0s .55s}
+  .flap .f,.flap .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    clip-path:polygon(0% 0%,100% 0%,100% 17%,95% 26%,90% 31%,85% 39%,80% 43%,75% 46%,68% 46%,62% 47%,58% 52%,54% 56%,52% 73%,50% 75%,48% 73%,46% 56%,42% 52%,38% 47%,32% 46%,25% 46%,20% 43%,15% 39%,10% 31%,5% 26%,0% 17%)}
+  .flap .f{background:url(img/zerf.jpg) center/100% 100%;border-radius:6px 6px 0 0}
+  .flap .b{background:url(img/zerf.jpg) center/100% 100%;filter:brightness(.45) saturate(.8);transform:rotateX(180deg)}
+  #intro.open .flap{transform:rotateX(180deg);z-index:0}
+  .env-card{container-type:inline-size;display:flex;align-items:center;justify-content:center}
+  .env-text{font-family:'Ballet',cursive;font-size:17cqw;color:#f3dcae;text-shadow:0 0 10px rgba(216,180,106,.8),0 2px 6px rgba(0,0,0,.7);
+    opacity:0;transform:scale(.8);transition:opacity 1s ease 1.9s, transform 1.2s ease 1.9s;margin-top:8cqw}
+  #intro.open .env-text{opacity:1;transform:none}
+  #intro.open .env-card{transform:translateY(-62%) scale(1.15)}
+  #intro.open .env-wrap{animation:none;transform:translateY(14%);transition:transform 1.2s ease 1s}
+  .jewel-glow{position:absolute;z-index:5;left:50%;top:62%;width:14%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(circle,rgba(255,215,255,.75),rgba(216,180,106,.25) 45%,transparent 70%);
+    animation:pulse 1.8s ease-in-out infinite;pointer-events:none;mix-blend-mode:screen}
+  #intro.open .jewel-glow{opacity:0;transition:opacity .3s}
+  .tap{margin-top:34px;font-family:'Cinzel',serif;letter-spacing:.3em;font-size:13px;color:var(--gold);text-transform:uppercase;
+    animation:blink 2s ease-in-out infinite;text-align:center}
+  .tap small{display:block;margin-top:10px;font-family:'Ballet',cursive;font-size:26px;letter-spacing:0;text-transform:none;color:#f3dcae}
+  #intro.open .tap{opacity:0;transition:opacity .4s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  @keyframes pulse{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.85)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
+  @keyframes blink{0%,100%{opacity:.45}50%{opacity:1}}
+
+  /* sparkle dust */
+  .dust{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+  .dust i{position:absolute;width:6px;height:6px;border-radius:50%;background:radial-gradient(circle,#fff6d8,#d8b46a 60%,transparent 70%);
+    animation:fall linear forwards}
+  @keyframes fall{from{transform:translate(0,0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+
+  /* ============ SƏHİFƏLƏR ============ */
+  main{max-width:520px;margin:0 auto;padding:18px 12px 30px;display:flex;flex-direction:column;gap:22px}
+  .card{position:relative;width:100%;background-size:100% 100%;background-repeat:no-repeat;container-type:inline-size;
+    border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.55);opacity:0;transform:translateY(40px);transition:opacity 1.1s ease, transform 1.1s ease}
+  .card.show{opacity:1;transform:none}
+  .c1{aspect-ratio:802/1032;background-image:url(img/p1.jpg)}
+  .c2{aspect-ratio:686/1032;background-image:url(img/p2.jpg)}
+  .c3{aspect-ratio:684/1032;background-image:url(img/p3.jpg)}
+  .c4{aspect-ratio:690/1032;background-image:url(img/p4.jpg)}
+  .inner{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+
+  /* Səhifə 1 — açıq fon */
+  .c1 .inner{left:29%;right:17%;top:36%;bottom:20%;color:#f0dcea}
+  .c1 .pre{font-family:'Cinzel',serif;font-size:3.1cqw;letter-spacing:.35em;color:var(--gold);margin-bottom:5cqw}
+  .names{font-family:'Ballet',cursive;font-size:11cqw;line-height:1.15;color:#f3dcae;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .names .amp{display:block;font-size:6.5cqw;color:var(--gold);margin:1cqw 0}
+  .orn{width:34cqw;height:3cqw;margin:2.5cqw auto 2cqw;background:
+    linear-gradient(90deg,transparent,var(--gold) 40%,transparent 50%,var(--gold) 60%,transparent) center/100% 1px no-repeat;position:relative}
+  .orn::after{content:'◆';position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);color:var(--gold);font-size:2.6cqw}
+  .msg{font-size:4.2cqw;line-height:1.5;font-style:italic;color:#f0dcea}
+
+  /* Bənövşəyi səhifələr */
+  .dark .inner{left:14%;right:14%;top:18%;bottom:22%}
+  .title{font-family:'Cinzel',serif;font-size:4.2cqw;letter-spacing:.3em;color:var(--gold);margin-bottom:4cqw}
+  .script{font-family:'Great Vibes',cursive;color:#f3dcae}
+  .bigdate{font-family:'Cinzel',serif;color:var(--cream);line-height:1}
+  .bigdate .d{font-size:22cqw;font-weight:600;background:linear-gradient(180deg,#fff2cf,#d8b46a 55%,#9b7430);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .bigdate .m{display:block;font-size:6cqw;letter-spacing:.35em;color:var(--gold);margin-top:2cqw}
+  .bigdate .y{display:block;font-size:4.6cqw;letter-spacing:.6em;color:#e8cfe4;margin-top:2cqw}
+  .weekday{font-family:'Great Vibes',cursive;font-size:8cqw;color:#f3dcae;margin-top:3cqw}
+  .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4cqw;width:100%;margin-top:6cqw}
+  .cd div{border:1px solid rgba(216,180,106,.55);border-radius:2cqw;padding:3cqw 0 2.2cqw;background:rgba(34,6,31,.45);backdrop-filter:blur(2px)}
+  .cd b{display:block;font-family:'Cinzel',serif;font-size:7cqw;color:#fff2cf;font-weight:600}
+  .cd span{font-size:3.2cqw;letter-spacing:.12em;color:var(--gold)}
+  .venue{font-family:'Great Vibes',cursive;font-size:13cqw;color:#f3dcae;line-height:1.1}
+  .venue-sub{font-family:'Cinzel',serif;font-size:3.6cqw;letter-spacing:.35em;color:var(--gold);margin-top:2cqw}
+  .ptext{font-size:4.6cqw;line-height:1.55;color:#f0dcea;margin-top:5cqw;font-style:italic}
+  .btn{display:inline-block;margin-top:7cqw;padding:3cqw 7cqw;border:1px solid var(--gold);border-radius:50px;color:#fff2cf;
+    font-family:'Cinzel',serif;font-size:3.6cqw;letter-spacing:.2em;text-decoration:none;background:linear-gradient(135deg,rgba(216,180,106,.25),rgba(92,22,80,.4));
+    cursor:pointer;transition:.3s}
+  .btn:hover{background:linear-gradient(135deg,rgba(216,180,106,.5),rgba(92,22,80,.5))}
+  .pin{font-size:9cqw;margin-bottom:2cqw;filter:drop-shadow(0 0 8px rgba(216,180,106,.6))}
+
+  /* RSVP */
+  .c4 .inner{top:17%;bottom:14%}
+  form{width:100%;display:flex;flex-direction:column;gap:3.4cqw}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:2.6cqw}
+  .opts label{border:1px solid rgba(216,180,106,.6);border-radius:2.5cqw;padding:3.2cqw 1cqw;font-size:4.2cqw;color:#f3dcae;cursor:pointer;
+    background:rgba(34,6,31,.45);transition:.25s}
+  .opts input{display:none}
+  .opts input:checked+label{background:linear-gradient(135deg,#d8b46a,#a8833a);color:var(--plum-d);font-weight:600;border-color:#fff2cf}
+  .field{width:100%;padding:3cqw 3.4cqw;border:1px solid rgba(216,180,106,.55);border-radius:2.5cqw;background:rgba(253,248,244,.08);
+    color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:4.2cqw;outline:none}
+  .field::placeholder{color:rgba(243,220,174,.6)}
+  .field:focus{border-color:#fff2cf;background:rgba(253,248,244,.14)}
+  textarea.field{min-height:24cqw;resize:none}
+  form .btn{margin-top:1cqw;border:1px solid var(--gold);font-family:'Cinzel',serif}
+  .thanks{display:none;font-family:'Great Vibes',cursive;font-size:9cqw;color:#f3dcae}
+
+
+  /* ============ PROQRAM + DRESS CODE (Almaz & Aydın üslubu) ============ */
+  .light{position:relative;container-type:inline-size;border-radius:4px;overflow:hidden;text-align:center;color:#3a0b33;
+    background:radial-gradient(900px 600px at 50% -8%,#fffdfd 0,#f6eef6 70%);box-shadow:0 18px 40px rgba(0,0,0,.55);
+    border:1px solid rgba(216,180,106,.7);outline:1px solid rgba(216,180,106,.35);outline-offset:-8px}
+  .sec-t{font-family:'Ballet',cursive;font-size:17cqw;line-height:1.1;padding-top:12cqw;
+    background:linear-gradient(100deg,#4a0f44 0%,#7a2a6e 40%,#b8893e 66%,#5c1650 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  #prog .stage{position:relative;width:100%;aspect-ratio:390/2200}
+  #prog .wave{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .ev{position:absolute;display:flex;flex-direction:column;align-items:center;width:max-content;max-width:60cqw;text-align:center;opacity:.42;
+    transform:translateY(calc(-50% + 12px));transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+  .ev.on{opacity:1;transform:translateY(-50%)}
+  .ev.l{left:6cqw}.ev.r{right:6cqw}
+  .ev .pic{display:block;height:auto;max-width:100%;transform:scale(.93);transition:transform 1.3s cubic-bezier(.2,.7,.2,1)}
+  .ev.on .pic{transform:none}
+  .tm{margin-top:2.6cqw;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:12.4cqw;line-height:.95;color:#5c1650;font-variant-numeric:lining-nums}
+  .lb{margin-top:2.4cqw;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:max(13px,3.9cqw);line-height:1.42;letter-spacing:.17em;text-transform:uppercase;color:#3a0b33}
+  #dress{padding:0 24px 12cqw}
+  .dress-p{margin:4cqw auto 0;max-width:24ch;font:italic 500 max(19px,5.4cqw)/1.4 'Cormorant Garamond',serif;color:#7a4a72}
+  .couple{position:relative;width:60cqw;margin:6cqw auto 0}
+  .couple img{width:100%;height:auto;display:block;position:relative;z-index:1}
+  .couple::after{content:'';position:absolute;left:4%;right:4%;bottom:-1.5%;height:7%;background:radial-gradient(closest-side,rgba(92,22,80,.28),rgba(92,22,80,0));filter:blur(3px)}
+  .sw{display:flex;justify-content:center;gap:12px;margin-top:8cqw}
+  .sw i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(92,22,80,.18);box-shadow:0 6px 10px -6px rgba(92,22,80,.55),inset 0 1px 0 rgba(255,255,255,.7)}
+
+  /* Devetify */
+  .devetify{text-align:center;padding:26px 0 34px}
+  .devetify a{display:inline-flex;align-items:center;gap:9px;color:#d8b46a;text-decoration:none;font-family:'Cinzel',serif;font-size:14px;letter-spacing:.18em;opacity:.85}
+  .devetify a:hover{opacity:1}
+  .devetify svg{width:22px;height:22px}
+</style>
+</head>
+<body class="locked">
+
+<!-- ZƏRF -->
+<div id="intro">
+  <div class="env-wrap" id="env" aria-label="Zərfi açın">
+    <div class="pocket"></div>
+    <div class="env-card"><div class="env-text">Dəvətlisiniz</div></div>
+    <div class="front"></div>
+    <div class="flap"><div class="f"></div><div class="b"></div></div>
+    <div class="jewel-glow"></div>
+  </div>
+  <div class="tap">Zərfə toxunun<small>Ayaz &amp; Aylin</small></div>
+</div>
+<div class="dust" id="dust"></div>
+
+<main>
+  <!-- 1. Dəvət -->
+  <section class="card c1">
+    <div class="inner">
+      <div class="names">Ayaz<span class="amp">&amp;</span>Aylin</div>
+      <div class="orn"></div>
+      <p class="msg">Həyatımızın ən gözəl gününü sizinlə bölüşmək istəyirik. Toyumuzda sizi görməyə şad olarıq.</p>
+    </div>
+  </section>
+
+  <!-- 2. Tarix + geri sayım -->
+  <section class="card c2 dark">
+    <div class="inner">
+      <div class="title">TARİX</div>
+      <div class="bigdate"><span class="d">12</span><span class="m">DEKABR</span><span class="y">2026</span></div>
+      <div class="weekday">Şənbə</div>
+      <div class="cd">
+        <div><b id="dd">0</b><span>GÜN</span></div>
+        <div><b id="hh">0</b><span>SAAT</span></div>
+        <div><b id="mm">0</b><span>DƏQ</span></div>
+        <div><b id="ss">0</b><span>SAN</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Proqram -->
+  <section class="card light" id="prog" aria-label="Proqram">
+    <h2 class="sec-t">Proqram</h2>
+    <div class="stage">
+      <svg class="wave" viewBox="0 0 390 2200" aria-hidden="true">
+        <defs>
+          <symbol id="hrt" viewBox="0 0 24 22"><path d="M12 21C5 15 1 11 1 6.8 1 3.6 3.6 1 6.8 1 9 1 11 2.2 12 4 13 2.2 15 1 17.2 1 20.4 1 23 3.6 23 6.8 23 11 19 15 12 21Z"/></symbol>
+          <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+        </defs>
+        <path id="wb" d="M-14 40C90 36 372 140 372 340C372 545 18 545 18 750C18 955 372 955 372 1160C372 1365 18 1365 18 1570C18 1775 372 1775 372 1980C372 2040 396 2100 420 2140" fill="none" stroke="#e2c9e0" stroke-width="7" stroke-linecap="round" opacity=".45"/>
+        <path id="wp" d="M-14 40C90 36 372 140 372 340C372 545 18 545 18 750C18 955 372 955 372 1160C372 1365 18 1365 18 1570C18 1775 372 1775 372 1980C372 2040 396 2100 420 2140" fill="none" stroke="#c9a3c4" stroke-width="1.5" stroke-linecap="round"/>
+        <path id="pg" d="M-14 40C90 36 372 140 372 340C372 545 18 545 18 750C18 955 372 955 372 1160C372 1365 18 1365 18 1570C18 1775 372 1775 372 1980C372 2040 396 2100 420 2140" fill="none" stroke="#6a1b63" stroke-width="2" stroke-linecap="round"/>
+        <g id="hg" transform="translate(-14 40)">
+          <ellipse rx="30" ry="27" fill="#b8893e" opacity=".4" filter="url(#glow)"/>
+          <g id="hgi"><use href="#hrt" x="-28" y="-25.6" width="56" height="51.3" fill="#6a1b63"/><path d="M-17 -12C-17 -17 -13 -20 -8 -19.4" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2.6" stroke-linecap="round"/></g>
+        </g>
+      </svg>
+      <div class="ev l" data-y="340" style="top:15.455%"><img class="pic" src="img/ev1.webp" alt="" style="width:54cqw"><div class="tm">18:00</div><p class="lb">Qonaqların<br>qarşılanması</p></div>
+      <div class="ev r" data-y="750" style="top:34.091%"><img class="pic" src="img/ev2.webp" alt="" style="width:33cqw"><div class="tm">19:00</div><p class="lb">İlk rəqs</p></div>
+      <div class="ev l" data-y="1160" style="top:52.727%"><img class="pic" src="img/ev3.webp" alt="" style="width:50cqw"><div class="tm">20:00</div><p class="lb">Şam yeməyi</p></div>
+      <div class="ev r" data-y="1570" style="top:71.364%"><img class="pic" src="img/ev4.webp" alt="" style="width:50cqw"><div class="tm">21:00</div><p class="lb">Tort</p></div>
+      <div class="ev l" data-y="1980" style="top:90.0%"><img class="pic" src="img/ev5.webp" alt="" style="width:56cqw"><div class="tm">22:00</div><p class="lb">DJ</p></div>
+    </div>
+  </section>
+
+  <!-- 3. Məkan -->
+  <section class="card c3 dark">
+    <div class="inner">
+      <div class="title">MƏKAN</div>
+      <div class="pin">📍</div>
+      <div class="venue">Movida Plaza</div>
+      <div class="venue-sub">ŞADLIQ SARAYI</div>
+      <p class="ptext">Bu gözəl axşamı birlikdə qeyd etmək üçün sizi gözləyirik.</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Movida+Plaza+Baku" target="_blank" rel="noopener">XƏRİTƏDƏ AÇ</a>
+    </div>
+  </section>
+
+
+  <!-- Dress code -->
+  <section class="card light" id="dress">
+    <h2 class="sec-t">Dress code</h2>
+    <p class="dress-p">Bənövşəyi, ağ və boz tonlar</p>
+    <div class="couple"><img src="img/dress.webp" alt="Dress code nümunəsi"></div>
+    <div class="sw" aria-hidden="true"><i style="background:#f1e6f3"></i><i style="background:#d6b5dc"></i><i style="background:#a86fb5"></i><i style="background:#6a1b63"></i><i style="background:#b8bec9"></i><i style="background:#fff"></i></div>
+  </section>
+
+  <!-- 4. RSVP -->
+  <section class="card c4 dark">
+    <div class="inner">
+      <div class="title">İŞTİRAK</div>
+      <form id="rsvp">
+        <div class="opts">
+          <input type="radio" name="g" id="yes" value="Gələcəm" checked><label for="yes">Gələcəm</label>
+          <input type="radio" name="g" id="no" value="Gələ bilməyəcəm"><label for="no">Gələ bilməyəcəm</label>
+        </div>
+        <input class="field" id="nm" type="text" placeholder="Adınız və soyadınız" required>
+        <textarea class="field" id="ms" placeholder="Bəy və gəlinə mesajınız..."></textarea>
+        <button class="btn" type="submit">GÖNDƏR</button>
+      </form>
+      <div class="thanks" id="thanks">Təşəkkür edirik!</div>
+    </div>
+  </section>
+
+  <div class="devetify">
+    <a href="https://www.instagram.com/devetify?vrfl=MTlnbnp5NzNzdHkweA==" target="_blank" rel="noopener" aria-label="Devetify Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+      Devetify
+    </a>
+  </div>
+</main>
+
+<script>
+  // RSVP cavablarının gedəcəyi WhatsApp nömrəsi (beynəlxalq formatda, + olmadan)
+  const WA_NUMBER = "994554550013";
+  const EVENT = new Date("2026-12-12T18:00:00+04:00");
+
+  const intro = document.getElementById('intro');
+  document.getElementById('env').addEventListener('click', () => {
+    if (intro.classList.contains('open')) return;
+    intro.classList.add('open');
+    burst();
+    setTimeout(() => { document.body.classList.remove('locked'); revealCards(); }, 4000);
+  });
+
+  function burst(){
+    const d = document.getElementById('dust');
+    const cx = innerWidth/2, cy = innerHeight/2;
+    for(let i=0;i<70;i++){
+      const s = document.createElement('i');
+      const a = Math.random()*Math.PI*2, r = 120+Math.random()*Math.max(innerWidth,innerHeight)*.6;
+      s.style.left = cx+'px'; s.style.top = cy+'px';
+      s.style.setProperty('--dx', Math.cos(a)*r+'px');
+      s.style.setProperty('--dy', Math.sin(a)*r+'px');
+      s.style.animationDuration = (1.4+Math.random()*1.6)+'s';
+      const z = 3+Math.random()*6; s.style.width = s.style.height = z+'px';
+      d.appendChild(s);
+    }
+    setTimeout(()=>d.innerHTML='',3500);
+  }
+
+  function revealCards(){
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+    }), {threshold:.15});
+    document.querySelectorAll('.card').forEach(c => io.observe(c));
+  }
+
+
+  // Proqram: dalğalı xətt üzrə ürək (Almaz & Aydın)
+  (function(){
+    const $=q=>document.querySelector(q), clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+    const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stage=$('#prog .stage'),wp=$('#wp'),pg=$('#pg'),hg=$('#hg');
+    const evs=[...document.querySelectorAll('#prog .ev')].map(el=>({el,y:+el.dataset.y}));
+    const total=wp.getTotalLength();
+    pg.style.strokeDasharray=total;pg.style.strokeDashoffset=total;
+    const N=520,LUT=[];
+    for(let i=0;i<=N;i++){const L=total*i/N;LUT.push([wp.getPointAtLength(L).y,L])}
+    const lenAtY=y=>{let lo=0,hi=N;while(lo<hi){const m=(lo+hi)>>1;if(LUT[m][0]<y)lo=m+1;else hi=m}return LUT[Math.min(lo,N)][1]};
+    let cur=0,run=false;
+    function loop(){
+      const r=stage.getBoundingClientRect(),sc=r.width/390||1;
+      const tgt=lenAtY(clamp((innerHeight*.5-r.top)/sc,0,2200));
+      cur+=(tgt-cur)*(RM?1:.17);if(Math.abs(tgt-cur)<.06)cur=tgt;
+      const p=wp.getPointAtLength(cur),q=wp.getPointAtLength(Math.min(total,cur+6));
+      const tilt=clamp(Math.atan2(q.x-p.x,q.y-p.y)*-42,-24,24);
+      hg.setAttribute('transform','translate('+p.x.toFixed(1)+' '+p.y.toFixed(1)+') rotate('+tilt.toFixed(1)+')');
+      pg.style.strokeDashoffset=total-cur;
+      for(const e of evs) if(p.y>=e.y-190) e.el.classList.add('on');
+      if(run)requestAnimationFrame(loop);
+    }
+    loop();
+    new IntersectionObserver(es=>{const v=es[0].isIntersecting;if(v&&!run){run=true;requestAnimationFrame(loop)}else if(!v)run=false},{rootMargin:'160px 0px'}).observe(stage);
+  })();
+
+  function tick(){
+    let t = Math.max(0, EVENT - new Date());
+    const d = Math.floor(t/864e5); t%=864e5;
+    const h = Math.floor(t/36e5); t%=36e5;
+    const m = Math.floor(t/6e4); const s = Math.floor((t%6e4)/1e3);
+    dd.textContent=d; hh.textContent=String(h).padStart(2,'0');
+    mm.textContent=String(m).padStart(2,'0'); ss.textContent=String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick,1000);
+
+  document.getElementById('rsvp').addEventListener('submit', e => {
+    e.preventDefault();
+    const g = document.querySelector('input[name=g]:checked').value;
+    const n = nm.value.trim(), m = ms.value.trim();
+    let txt = `Ayaz & Aylin toyu — cavab\nAd: ${n}\nİştirak: ${g}`;
+    if (m) txt += `\nMesaj: ${m}`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(txt)}`, '_blank');
+    e.target.style.display='none'; thanks.style.display='block';
+  });
+</script>
+</body>
+</html>
