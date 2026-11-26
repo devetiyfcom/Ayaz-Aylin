@@ -155,6 +155,16 @@
   .sw{display:flex;justify-content:center;gap:12px;margin-top:8cqw}
   .sw i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(92,22,80,.18);box-shadow:0 6px 10px -6px rgba(92,22,80,.55),inset 0 1px 0 rgba(255,255,255,.7)}
 
+
+  /* Musiqi düyməsi */
+  #mus{position:fixed;right:14px;bottom:14px;z-index:40;width:44px;height:44px;border-radius:50%;border:1px solid rgba(216,180,106,.8);
+    background:rgba(34,6,31,.75);color:#f3dcae;display:none;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(4px);
+    box-shadow:0 6px 16px rgba(0,0,0,.5)}
+  #mus.on{display:flex}
+  #mus svg{width:20px;height:20px}
+  #mus.playing svg{animation:spin 6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
   /* Devetify */
   .devetify{text-align:center;padding:26px 0 34px}
   .devetify a{display:inline-flex;align-items:center;gap:9px;color:#d8b46a;text-decoration:none;font-family:'Cinzel',serif;font-size:14px;letter-spacing:.18em;opacity:.85}
@@ -176,6 +186,8 @@
   <div class="tap">Zərfə toxunun</div>
 </div>
 <div class="dust" id="dust"></div>
+<audio id="song" src="musiqi.mp3" preload="auto" loop></audio>
+<button id="mus" aria-label="Musiqini dayandır / başlat"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 3v12.3A3.5 3.5 0 1 0 11 18V8h8V3H9z"/></svg></button>
 
 <main>
   <!-- 1. Dəvət -->
@@ -284,7 +296,21 @@
     if (intro.classList.contains('open')) return;
     intro.classList.add('open');
     burst();
+    startSong();
     setTimeout(() => { document.body.classList.remove('locked'); revealCards(); }, 4000);
+  });
+
+
+  // Musiqi: zərf açılanda yavaş-yavaş başlayır
+  const song=document.getElementById('song'), mus=document.getElementById('mus');
+  function startSong(){
+    song.volume=0; mus.classList.add('on');
+    song.play().then(()=>{mus.classList.add('playing');
+      let v=0; const t=setInterval(()=>{v=Math.min(.5,v+.025); song.volume=v; if(v>=.5)clearInterval(t)},120);
+    }).catch(()=>{});
+  }
+  mus.addEventListener('click',()=>{
+    if(song.paused){song.play();mus.classList.add('playing')} else {song.pause();mus.classList.remove('playing')}
   });
 
   function burst(){
